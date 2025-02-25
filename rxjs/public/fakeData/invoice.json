@@ -1,0 +1,8 @@
+{
+  "tid": "550e8400-e29b-41d4-a716-446655440000",
+  "reference": "INV-001",
+  "currency": "USD",
+  "invoiceType": "Credit",
+  "amount": 1000.00,
+  "tax": 100.00
+}
