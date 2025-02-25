@@ -2,4 +2,4 @@
 
 Bienvenidos al repositorio de la Guild de Frontend
 
-Aquí encontrarás recursos, proyectos y demás 
+Aquí encontrarás recursos, proyectos y demás. 
