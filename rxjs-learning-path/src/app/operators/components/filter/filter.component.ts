@@ -2,7 +2,6 @@ import {Component, inject, OnInit} from '@angular/core';
 import {Highlight} from 'ngx-highlightjs';
 import {InvoiceService} from '../../../services/invoice.service';
 import {Invoice} from '../../../models/invoice';
-import {filter, map} from 'rxjs';
 
 @Component({
   selector: 'app-filter',
@@ -31,11 +30,15 @@ export class FilterComponent implements OnInit {
     // Todo: refactorizar este código usando el operador Filter:
     this.invoiceService
       .getInvoice()
-      .pipe(
-        filter(invoice => invoice.invoiceType === 'Credit'),
-        map(invoice => ({...invoice, totalAmount: invoice.amount + invoice.tax}))
-      ).subscribe({
-        next: invoice => this.invoice = invoice,
-    })
+      .subscribe({
+        next: (invoice: Invoice) => {
+          if (invoice.invoiceType === 'Credit') {
+            this.invoice = {
+              ...invoice,
+              totalAmount: invoice.amount + invoice.tax,
+            }
+          }
+        }
+      });
   }
 }
