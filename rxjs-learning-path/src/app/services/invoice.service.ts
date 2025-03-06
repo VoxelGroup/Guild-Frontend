@@ -16,4 +16,8 @@ export class InvoiceService {
   getInvoice(): Observable<Invoice> {
     return this.httpClient.get<Invoice>('fakeData/invoice.json')
   }
+
+  getAdminInvoices(userId: string): Observable<Invoice[]> {
+    return this.httpClient.get<Invoice[]>('fakeData/invoices.json')
+  }
 }
