@@ -43,15 +43,17 @@ export class SwitchMapComponent implements OnInit {
           if (user.role === 'Admin') {
             this.invoiceService.getAdminInvoices(user.id)
               .subscribe({
-                next: (invoices: Invoice[]) => {
-                  this.invoices = invoices.map(invoice => ({
-                    ...invoice,
-                    totalAmount: invoice.amount + invoice.tax,
-                  }))
-                }
+                next: (invoices: Invoice[]) => this.invoices = this.mapInvoices(invoices)
               })
           }
         }
       })
+  }
+
+  private mapInvoices(invoices: Invoice[]): Invoice[] {
+    return invoices.map(invoice => ({
+      ...invoice,
+      totalAmount: invoice.amount + invoice.tax,
+    }));
   }
 }
