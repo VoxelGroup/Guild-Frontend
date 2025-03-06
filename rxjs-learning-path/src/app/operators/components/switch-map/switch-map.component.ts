@@ -10,14 +10,14 @@ import {UserService} from '../../../services/user.service';
   templateUrl: './switch-map.component.html',
   styleUrl: './switch-map.component.css'
 })
-export class SwitchMapComponent  implements OnInit {
+export class SwitchMapComponent implements OnInit {
   private userService = inject(UserService);
   private invoiceService = inject(InvoiceService);
 
   invoices: Invoice[] = [];
 
 
-  code: string =  `
+  code: string = `
   import {Observable, of, switchMap} from 'rxjs';
 
   const numbers$ = of(1, 2, 3);
@@ -37,21 +37,21 @@ export class SwitchMapComponent  implements OnInit {
     // En caso de serlo llamar al servicio de invoice para traer el listado y calcular el total amount de cada factura sumando el amount y tax
     // Todo: refactorizar este código usando el operador Map:
 
-   this.userService.getUser()
-     .subscribe({
-       next: user => {
-         if (user.role === 'Admin') {
-           this.invoiceService.getAdminInvoices(user.id)
-           .subscribe({
-             next: (invoices: Invoice[]) => {
-               this.invoices = invoices.map(invoice => ({
-                 ...invoice,
-                 totalAmount: invoice.amount + invoice.tax,
-               }))
-             }
-           })
-         }
-       }
-     })
+    this.userService.getUser()
+      .subscribe({
+        next: user => {
+          if (user.role === 'Admin') {
+            this.invoiceService.getAdminInvoices(user.id)
+              .subscribe({
+                next: (invoices: Invoice[]) => {
+                  this.invoices = invoices.map(invoice => ({
+                    ...invoice,
+                    totalAmount: invoice.amount + invoice.tax,
+                  }))
+                }
+              })
+          }
+        }
+      })
   }
 }
