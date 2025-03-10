@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Highlight} from 'ngx-highlightjs';
+import {UserService} from '../../../services/user.service';
+import {UserData} from '../../../models/user';
 
 @Component({
   selector: 'app-tap',
@@ -10,6 +12,9 @@ import {Highlight} from 'ngx-highlightjs';
   styleUrl: './tap.component.css'
 })
 export class TapComponent implements OnInit {
+  private userService = inject(UserService)
+  user!: UserData;
+
   code: string = `
     import { of } from 'rxjs';
     import { tap } from 'rxjs/operators';
@@ -22,6 +27,12 @@ export class TapComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.userService.getUser()
+      .subscribe({
+        next: user => {
+          this.user = user;
+          console.log(user);
+        },
+      })
   }
 }

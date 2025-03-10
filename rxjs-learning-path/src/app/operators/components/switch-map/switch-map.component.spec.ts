@@ -50,7 +50,7 @@ const expectedInvoices: Invoice[] = [
   }
 ];
 
-fdescribe('SwitchMapComponent', () => {
+describe('SwitchMapComponent', () => {
   let component: SwitchMapComponent;
   let fixture: ComponentFixture<SwitchMapComponent>;
   let userService: UserService;
