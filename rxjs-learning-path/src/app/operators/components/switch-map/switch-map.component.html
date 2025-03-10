@@ -1,0 +1,12 @@
+<h1>Operador switchMap</h1>
+<p><b>El operador switchMap</b> toma cada valor emitido por el observable fuente y lo transforma en un nuevo observable.</p>
+<p><b>Cancelación de Emisiones Anteriores:</b> Si el observable fuente emite un nuevo valor antes de que el observable interno anterior complete, switchMap cancela la suscripción al observable interno anterior y se suscribe al nuevo observable.</p>
+<p><b>Uso Común:</b> Es ideal para manejar flujos de datos donde solo te interesa la última emisión, como en búsquedas en tiempo real o solicitudes HTTP dependientes.</p>
+
+<p>Ejemplo:</p>
+
+<p>Nota: el operador "of" emitirá un evento por cada uno de los números listados, de tal manera que en el pipe del switchMap entrará 3 veces y el  </p>
+
+<pre>
+  <code [highlight]="code" language="ts" ></code>
+</pre>
