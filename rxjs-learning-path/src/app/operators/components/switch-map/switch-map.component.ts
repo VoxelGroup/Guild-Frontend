@@ -3,6 +3,7 @@ import {Highlight} from 'ngx-highlightjs';
 import {InvoiceService} from '../../../services/invoice.service';
 import {Invoice} from '../../../models/invoice';
 import {UserService} from '../../../services/user.service';
+import {UserData} from "../../../models/user";
 
 @Component({
   selector: 'app-switch-map',
@@ -15,7 +16,7 @@ export class SwitchMapComponent implements OnInit {
   private invoiceService = inject(InvoiceService);
 
   invoices: Invoice[] = [];
-
+  user!: UserData;
 
   code: string = `
   import {Observable, of, switchMap} from 'rxjs';
@@ -40,6 +41,7 @@ export class SwitchMapComponent implements OnInit {
     this.userService.getUser()
       .subscribe({
         next: user => {
+          this.user = user;
           if (user.role === 'Admin') {
             this.invoiceService.getAdminInvoices(user.id)
               .subscribe({
