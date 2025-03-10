@@ -50,7 +50,7 @@ const expectedInvoices: Invoice[] = [
   }
 ];
 
-describe('SwitchMapComponent', () => {
+fdescribe('SwitchMapComponent', () => {
   let component: SwitchMapComponent;
   let fixture: ComponentFixture<SwitchMapComponent>;
   let userService: UserService;
@@ -94,6 +94,7 @@ describe('SwitchMapComponent', () => {
 
     expect(userService.getUser).toHaveBeenCalled();
     expect(invoiceService.getAdminInvoices).not.toHaveBeenCalled();
+    expect(component.user).toEqual(user);
     expect(component.invoices).toEqual([]);
   }));
 
@@ -110,6 +111,7 @@ describe('SwitchMapComponent', () => {
 
     expect(userService.getUser).toHaveBeenCalled();
     expect(invoiceService.getAdminInvoices).toHaveBeenCalledWith(user.id);
+    expect(component.user).toEqual(user);
     expect(component.invoices).toEqual(expectedInvoices);
   }));
 });
