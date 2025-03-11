@@ -36,7 +36,7 @@ export class SwitchMapComponent implements OnInit {
   ngOnInit(): void {
     //Solo en caso de que el usuario sea un administrador podrá listar las facturas.
     // En caso de serlo llamar al servicio de invoice para traer el listado y calcular el total amount de cada factura sumando el amount y tax
-    // Todo: refactorizar este código usando el operador Map:
+    // Todo: refactorizar este código usando los operadores necesarios:
 
     this.userService.getUser()
       .subscribe({

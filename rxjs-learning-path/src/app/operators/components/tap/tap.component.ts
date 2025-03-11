@@ -27,6 +27,7 @@ export class TapComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // Todo: refactorizar este código usando los operadores necesarios:
     this.userService.getUser()
       .subscribe({
         next: user => {
