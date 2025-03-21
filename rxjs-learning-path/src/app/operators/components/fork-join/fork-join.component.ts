@@ -62,7 +62,7 @@ export class ForkJoinComponent implements OnInit {
     });
   }
 
- private initForm(): void {
+ initForm(): void {
     this.invoiceFormCreator = this.formBuilder.group({
       country: this.formBuilder.control(this.countryOptions),
       currency: this.formBuilder.control(this.currencyOptions),

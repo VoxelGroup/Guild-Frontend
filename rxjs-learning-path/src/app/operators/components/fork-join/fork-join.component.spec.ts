@@ -46,14 +46,20 @@ describe('ForkJoinComponent', () => {
   });
 
   it('should init the form', fakeAsync(() => {
-    spyOn(invoiceService, 'getCurrencies').and.returnValue(of(currencies).pipe(delay(50)));
-    spyOn(invoiceService, 'getCountries').and.returnValue(of(countries).pipe(delay(100)));
+    spyOn(invoiceService, 'getCurrencies').and.returnValue(of(currencies).pipe(delay(getRandomNumber(150))));
+    spyOn(invoiceService, 'getCountries').and.returnValue(of(countries).pipe(delay(getRandomNumber(150))));
+    spyOn(component, 'initForm').and.callThrough();
 
     component.ngOnInit();
     tick(150);
 
     expect(component.invoiceFormCreator).toBeDefined();
+    expect(component.initForm).toHaveBeenCalledTimes(1);
     expect(component.invoiceFormCreator.get('currency')?.value).toEqual(currencies);
     expect(component.invoiceFormCreator.get('country')?.value).toEqual(countries);
   }));
 });
+
+function getRandomNumber(maxValue: number): number {
+  return Math.floor(Math.random() * maxValue);
+}
