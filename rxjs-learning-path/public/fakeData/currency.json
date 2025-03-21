@@ -1,0 +1,12 @@
+﻿[
+  { "value": "USD", "label": "United States Dollar" },
+  { "value": "EUR", "label": "Euro" },
+  { "value": "JPY", "label": "Japanese Yen" },
+  { "value": "GBP", "label": "British Pound" },
+  { "value": "AUD", "label": "Australian Dollar" },
+  { "value": "CAD", "label": "Canadian Dollar" },
+  { "value": "CHF", "label": "Swiss Franc" },
+  { "value": "CNY", "label": "Chinese Yuan" },
+  { "value": "INR", "label": "Indian Rupee" },
+  { "value": "BRL", "label": "Brazilian Real" }
+]

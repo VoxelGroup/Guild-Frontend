@@ -1,0 +1,16 @@
+﻿[
+  { "label": "United States", "value": "US" },
+  { "label": "Canada", "value": "CA" },
+  { "label": "Mexico", "value": "MX" },
+  { "label": "Brazil", "value": "BR" },
+  { "label": "Argentina", "value": "AR" },
+  { "label": "United Kingdom", "value": "GB" },
+  { "label": "Germany", "value": "DE" },
+  { "label": "France", "value": "FR" },
+  { "label": "Italy", "value": "IT" },
+  { "label": "Spain", "value": "ES" },
+  { "label": "China", "value": "CN" },
+  { "label": "Japan", "value": "JP" },
+  { "label": "South Korea", "value": "KR" },
+  { "label": "India", "value": "IN" }
+]
