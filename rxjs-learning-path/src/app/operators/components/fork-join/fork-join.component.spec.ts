@@ -1,4 +1,4 @@
-import {ComponentFixture, fakeAsync, flush, flushMicrotasks, TestBed, tick} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import { ForkJoinComponent } from './fork-join.component';
 import {MockProvider} from 'ng-mocks';
